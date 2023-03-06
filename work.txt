@@ -1,0 +1,10 @@
+PROYECTO CONCENDAR
+Crear una app con Python para la gestión de conciertos
+
+REQUISITOS:
+1- Menú inicial, donde se indiquen las diferentes opciones que se puedan hacer -- JUAN
+2- Listar los distintos conciertos que hay actualmente en la app -- JUAN
+3- Listar los conciertos por lugar -- ASIER
+4- Añadir nuevos conciertos -- ASIER
+5- Eliminar conciertos -- ASIER
+6- DATOS DE LOS CONCIERTOS: ID, fecha, artista, lugar, anotación, precio y si tengo entrada o no -- JUAN
