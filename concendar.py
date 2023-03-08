@@ -1,7 +1,7 @@
     #Concendar
 #Menú
 def mostrar_menu(nombre, opciones):  
-    print(f'# {nombre}. Seleccione una opción:')
+    print(f'* {nombre}. Selecciona una opción:')
     for clave in sorted(opciones):
         print(f' {clave}) {opciones[clave][0]}')
 
