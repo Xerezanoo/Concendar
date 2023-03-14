@@ -21,12 +21,12 @@ opcion = input("Seleccione una opción: ")
 # Funciones menú
 
 def listar_conciertos():
-    for c in conciertos:
-        if c == c:
+    if conciertos:
+        for c in conciertos:
             print(c)
-        else:
-            print("No hay ningún concierto, añade alguno en la opción *Añadir un nuevo concierto*")
-    
+    else:
+        print("No hay ningún concierto, añade alguno en la opción *Añadir un nuevo concierto*")
+        
 
 def listar_conciertos_por_lugar():
     lugar = input("Lugar del que quieres ver los conciertos: ")
@@ -44,13 +44,15 @@ def añadir_concierto():
     entrada = input("¿Tienes entrada para el concierto? (si o no): ")
     anotacion = input("Introduce alguna anotación del concierto si la necesita: ")
 
-    nuevo_concierto = {"id": id, "fecha": fecha, "artista": artista, "lugar": lugar, "precio": precio, "entrada": entrada, "anotacion": anotacion}
+    nuevo_concierto = {"nombre": id, "fecha": fecha, "artista": artista, "lugar": lugar, "precio": precio, "entrada": entrada, "anotacion": anotacion}
     conciertos.append(nuevo_concierto)
 
     with open("conciertos.txt", "wb") as archivo:
         pickle.dump(conciertos, archivo)
     
     print("Se ha añadido el concierto correctamente")
+
+    
 
 
 def eliminar_concierto():
