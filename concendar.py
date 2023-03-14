@@ -48,7 +48,7 @@ def añadir_concierto():
     print("Se ha añadido el concierto correctamente")
 
 def eliminar_concierto():
-    id = input("Introduce la ID del concierto que quieres eliminar: ")
+    id = input("Introduce el nombre del concierto que quieres eliminar: ")
     for c in conciertos:
         if c["id"] == id:
             conciertos.remove(c)
