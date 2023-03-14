@@ -9,7 +9,7 @@ except FileNotFoundError:
 
 # Menú principal
 
-print("Bienvenido a Concendar!    * Menú principal. Seleccione una opción")
+print("* Menú principal.Seleccione una opción.         Bienvenido a Concendar!")
 print("1) Mis conciertos")
 print("2) Mis lugares")
 print("3) Añadir un nuevo concierto")
@@ -22,13 +22,18 @@ opcion = input("Seleccione una opción: ")
 
 def listar_conciertos():
     for c in conciertos:
-        print(c)
+        if c == c:
+            print(c)
+        else:
+            print("No hay ningún concierto, añade alguno en la opción *Añadir un nuevo concierto*")
+    
 
 def listar_conciertos_por_lugar():
     lugar = input("Lugar del que quieres ver los conciertos: ")
     conciertos_filtrados = filter(lambda c: c["lugar"] == lugar , conciertos)
     for c in conciertos_filtrados:
             print(c)
+
 
 def añadir_concierto():
     id = input ("Introduce el nombre del concierto: ")
@@ -47,6 +52,7 @@ def añadir_concierto():
     
     print("Se ha añadido el concierto correctamente")
 
+
 def eliminar_concierto():
     id = input("Introduce el nombre del concierto que quieres eliminar: ")
     for c in conciertos:
@@ -61,6 +67,7 @@ def eliminar_concierto():
         pickle.dump(conciertos, archivo)
 
 # Opciones menú
+
 if opcion == "1":
     listar_conciertos()
            
