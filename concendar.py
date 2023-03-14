@@ -1,4 +1,7 @@
     #Concendar
+
+# Módulo pickle para guardar mi lista de conciertos en un archivo .txt (para que no se pierdan los datos del que use mi app cada vez que apague el PC).
+
 import pickle
 conciertos = []
 try:
@@ -7,18 +10,7 @@ try:
 except FileNotFoundError:
     pass
 
-# Menú principal
-
-print("* Menú principal.Seleccione una opción.         Bienvenido a Concendar!")
-print("1) Mis conciertos")
-print("2) Mis lugares")
-print("3) Añadir un nuevo concierto")
-print("4) Eliminar un concierto")
-print("5) Salir")
-
-opcion = input("Seleccione una opción: ")
-
-# Funciones menú
+# Funciones --> son las diferentes opciones que puedes hacer en mi aplicación.
 
 def listar_conciertos():
     if conciertos:
@@ -26,15 +18,21 @@ def listar_conciertos():
             print(c)
     else:
         print("No hay ningún concierto, añade alguno en la opción *Añadir un nuevo concierto*")
+    print(" ")
         
 
 def listar_conciertos_por_lugar():
     lugar = input("Lugar del que quieres ver los conciertos: ")
     conciertos_filtrados = filter(lambda c: c["lugar"] == lugar , conciertos)
+    encontrado = False
     for c in conciertos_filtrados:
-            print(c)
-
-
+        print(c)
+        encontrado = True
+    if not encontrado:
+        print("No se ha encontrado ningún concierto en ese lugar")
+    print(" ")
+            
+    
 def añadir_concierto():
     id = input ("Introduce el nombre del concierto: ")
     fecha = input("Introduce la fecha del concierto: ")
@@ -52,38 +50,55 @@ def añadir_concierto():
     
     print("Se ha añadido el concierto correctamente")
 
+    print(" ")
+
     
-
-
 def eliminar_concierto():
     id = input("Introduce el nombre del concierto que quieres eliminar: ")
     for c in conciertos:
-        if c["id"] == id:
+        if c["nombre"] == id:
             conciertos.remove(c)
             print("Se ha eliminado el concierto correctamente")
             break
         else:
-            print("No hay ningún concierto con ese id")
+            print("No hay ningún concierto con ese nombre")
             break
+
     with open("conciertos.txt", "wb") as archivo:
         pickle.dump(conciertos, archivo)
+    
+    print(" ")
 
-# Opciones menú
+# Menú principal --> es la base del programa, ya que según la opción que elijas, llamará a las funciones que he definido arriba.
 
-if opcion == "1":
-    listar_conciertos()
+def menu():
+    while True:
+        print("* Menú principal. Seleccione una opción.         Bienvenido a Concendar!")
+        print("1) Mis conciertos")
+        print("2) Mis lugares")
+        print("3) Añadir un nuevo concierto")
+        print("4) Eliminar un concierto")
+        print("5) Salir")
+
+        opcion = input("Seleccione una opción: ")
+
+        if opcion == "1":
+            listar_conciertos()
            
-elif opcion == "2":
-    listar_conciertos_por_lugar()
+        elif opcion == "2":
+            listar_conciertos_por_lugar()
 
-elif opcion == "3":
-    añadir_concierto()
+        elif opcion == "3":
+            añadir_concierto()
     
-elif opcion == "4":
-    eliminar_concierto()
+        elif opcion == "4":
+            eliminar_concierto()
     
-elif opcion == "5": 
-    print("Saliendo... Gracias por usar Concendar!")
+        elif opcion == "5": 
+            print("Saliendo... Gracias por usar Concendar!")
+            break
 
-else:
-    print("Opción inválida, seleccione otra por favor")
+        else:
+            print("Opción no válida, seleccione otra por favor")
+
+menu()
