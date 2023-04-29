@@ -1,6 +1,6 @@
     #Concendar
 
-# Módulo pickle para guardar mi lista de conciertos en un archivo .txt (para que no se pierdan los datos del que use mi app cada vez que apague el PC).
+# Módulo Pickle --> Lo uso para guardar mi lista de conciertos en un archivo .txt (creo una pequeña base de datos en un archivo de texto).
 
 import pickle
 conciertos = []
@@ -10,7 +10,7 @@ try:
 except FileNotFoundError:
     pass
 
-# Funciones --> son las diferentes opciones que puedes hacer en mi aplicación.
+# Funciones --> Aquí defino las funciones, que son las diferentes opciones que puedes hacer en mi programa.
 
 def listar_conciertos():
     if conciertos:
@@ -69,7 +69,7 @@ def eliminar_concierto():
     
     print(" ")
 
-# Menú principal --> es la base del programa, ya que según la opción que elijas, llamará a las funciones que he definido arriba.
+# Menú principal --> Es la base del programa, ya que según la opción que elijas, llamará a las funciones que he definido arriba.
 
 def menu():
     while True:
