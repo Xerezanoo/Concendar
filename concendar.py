@@ -1,4 +1,4 @@
-    #Concendar
+# Concendar -- Juan García Lanza -- 2º Bachillerato Tecnológico (Febrero 2023)
 
 # Módulo Pickle --> Lo uso para guardar mi lista de conciertos en un archivo .txt (creo una pequeña base de datos en un archivo de texto).
 
